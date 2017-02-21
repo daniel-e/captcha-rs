@@ -1,0 +1,13 @@
+[package]
+name = "captcha"
+version = "0.1.0"
+authors = ["de <git.daniele@gmail.com>"]
+build = "build.rs"
+
+[build-dependencies]
+pkg-config = "*"
+
+[dependencies]
+lodepng = "*"
+rand = "*"
+libc = "*"
