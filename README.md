@@ -1,4 +1,4 @@
-CAPTCHA libary written in Rust
+CAPTCHA libary written in Rust.
 
 ## Requirements
 

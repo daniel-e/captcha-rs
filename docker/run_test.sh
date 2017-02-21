@@ -3,9 +3,10 @@
 set -e
 LOG=/tmp/log
 
-cat /etc/issue > $LOG
+cat /etc/issue | head -n1 > $LOG
 
 # latest stable version of Rust
+echo "Rust stable"
 cd /tmp/
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 export PATH=$PATH:~/.cargo/bin/
@@ -17,6 +18,7 @@ cargo test
 echo -e '\033[1;32m'"TEST OK"'\033[0m'
 
 # Rust beta
+echo "Rust beta"
 rm -rf ~/.cargo/bin/
 cd /tmp/
 curl -s https://static.rust-lang.org/dist/rust-beta-x86_64-unknown-linux-gnu.tar.gz --output r.tar.gz
@@ -30,6 +32,8 @@ cargo build
 cargo test
 echo -e '\033[1;32m'"TEST OK"'\033[0m'
 
+echo
+echo
 echo -e '\033[1;32m'"TEST ENVIRONMENT"'\033[0m'
 cat $LOG
 exit 0
